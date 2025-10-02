@@ -9,7 +9,6 @@ class SampleTextField extends StatefulWidget {
 }
 
 class _SampleTextFieldState extends State<SampleTextField> {
-  // controllers to capture input
   final TextEditingController txtController = TextEditingController();
   final TextEditingController pwdController = TextEditingController();
 
@@ -29,7 +28,6 @@ class _SampleTextFieldState extends State<SampleTextField> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Username TextField
             TextField(
               controller: txtController,
               decoration: const InputDecoration(
@@ -38,24 +36,19 @@ class _SampleTextFieldState extends State<SampleTextField> {
                 labelText: 'Username',
               ),
             ),
-
             const SizedBox(height: 12),
-
-            // Password TextField
             TextField(
               controller: pwdController,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Password',
               ),
-              obscureText: true, // hides password characters
+              obscureText: true,
             ),
-
             const SizedBox(height: 20),
-
-            // Submit button
             ElevatedButton(
               style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
                 minimumSize: const Size.fromHeight(50),
               ),
               onPressed: () {
@@ -65,12 +58,17 @@ class _SampleTextFieldState extends State<SampleTextField> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>
-                        NewPage(username: u, password: p),
+                    builder: (context) => NewPage(username: u, password: p),
                   ),
                 );
               },
-              child: const Text('Submit'),
+              child: const Text(
+                'LOGIN',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ],
         ),
